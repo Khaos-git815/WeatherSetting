@@ -3,7 +3,7 @@ import numpy as np
 # --- Configuration ---
 np.random.seed(42)  # For reproducibility
 
-# Data structure
+# Data structure and simple
 city_names = ['Berlin', 'Hamburg', 'Ingolstadt', 'Frankfurt']
 day_names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 time_names = ['morning', 'afternoon', 'evening']
@@ -31,6 +31,7 @@ city_names.append('Munich')
 print("2.3 – New shape after adding Munich:", weather_data.shape)
 print(weather_data)
 
+
 # --- 2.4: Daily average temperature per city (shape: 7, 5) ---
 # Average over time axis (axis=2)
 daily_city_avg = weather_data.mean(axis=2)
@@ -40,4 +41,4 @@ print("2.4 – Daily average temp (7 days × 5 cities):\n", daily_city_avg)
 weekly_city_avg = daily_city_avg.mean(axis=0)  # shape: (5,)
 lowest_temp = np.min(weekly_city_avg)
 coldest_cities = [city_names[i] for i, avg in enumerate(weekly_city_avg) if np.isclose(avg, lowest_temp)]
-print("2.5 – City/cities with the lowest weekly average temperature:", coldest_cities) 
+print("2.5.1 – City/cities with the lowest weekly average temperature:", coldest_cities) 
